@@ -36,7 +36,7 @@ def test_check_availability():
     )
     
     assert result.get("status") == "success"
-    assert result.get("available") == True
+    assert result.get("available") is True
     print("✓ Check availability test passed")
 
 

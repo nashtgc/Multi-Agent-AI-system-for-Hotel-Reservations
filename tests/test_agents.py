@@ -73,7 +73,7 @@ def test_availability_agent():
     response = agent.process_message(message)
     assert response is not None
     assert response.content.get("status") == "success"
-    assert response.content.get("available") == True
+    assert response.content.get("available") is True
     # Verify price calculation: 3 nights * price per night
     expected_price = 3 * 150.0
     assert response.content.get("total_price") == expected_price
@@ -138,7 +138,7 @@ def test_confirmation_agent():
     response = agent.process_message(message)
     assert response is not None
     assert response.content.get("status") == "success"
-    assert response.content.get("confirmation_sent") == True
+    assert response.content.get("confirmation_sent") is True
     print("✓ Confirmation agent test passed")
 
 
