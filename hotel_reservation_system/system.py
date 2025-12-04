@@ -119,29 +119,30 @@ class HotelReservationSystem:
     
     def get_room_info(self) -> Dict[str, Any]:
         """Get information about available room types and pricing"""
+        from .models import RoomType
         return {
             "room_types": {
                 "single": {
                     "name": "Single Room",
-                    "price_per_night": self.availability.ROOM_PRICES["single"],
+                    "price_per_night": self.availability.ROOM_PRICES[RoomType.SINGLE],
                     "capacity": 1,
                     "amenities": ["WiFi", "TV", "Air Conditioning", "Breakfast"]
                 },
                 "double": {
                     "name": "Double Room",
-                    "price_per_night": self.availability.ROOM_PRICES["double"],
+                    "price_per_night": self.availability.ROOM_PRICES[RoomType.DOUBLE],
                     "capacity": 2,
                     "amenities": ["WiFi", "TV", "Air Conditioning", "Breakfast", "Mini Bar"]
                 },
                 "suite": {
                     "name": "Suite",
-                    "price_per_night": self.availability.ROOM_PRICES["suite"],
+                    "price_per_night": self.availability.ROOM_PRICES[RoomType.SUITE],
                     "capacity": 4,
                     "amenities": ["WiFi", "TV", "Air Conditioning", "Breakfast", "Mini Bar", "Living Area"]
                 },
                 "deluxe": {
                     "name": "Deluxe Room",
-                    "price_per_night": self.availability.ROOM_PRICES["deluxe"],
+                    "price_per_night": self.availability.ROOM_PRICES[RoomType.DELUXE],
                     "capacity": 4,
                     "amenities": ["WiFi", "TV", "Air Conditioning", "Breakfast", "Mini Bar", "Living Area", "Jacuzzi"]
                 }

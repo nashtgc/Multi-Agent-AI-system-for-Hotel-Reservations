@@ -2,7 +2,7 @@
 
 from enum import Enum
 from typing import Any, Dict, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from datetime import datetime
 
 
@@ -21,7 +21,7 @@ class AgentMessage(BaseModel):
     receiver: str
     message_type: MessageType
     content: Dict[str, Any]
-    timestamp: datetime = datetime.now()
+    timestamp: datetime = Field(default_factory=datetime.now)
     reply_to: Optional[str] = None
 
 

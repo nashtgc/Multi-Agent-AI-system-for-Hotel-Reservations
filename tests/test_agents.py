@@ -74,7 +74,10 @@ def test_availability_agent():
     assert response is not None
     assert response.content.get("status") == "success"
     assert response.content.get("available") == True
-    assert response.content.get("total_price") == 450.0  # 3 nights * $150
+    # Verify price calculation: 3 nights * price per night
+    expected_price = 3 * 150.0
+    assert response.content.get("total_price") == expected_price
+    assert response.content.get("nights") == 3
     print("✓ Availability agent test passed")
 
 
